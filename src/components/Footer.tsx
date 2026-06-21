@@ -22,13 +22,26 @@ export default function Footer() {
             <Link href="/issues" className="transition-colors hover:text-zinc-300">
               Issues
             </Link>
+            <Link href="/privacy" className="transition-colors hover:text-zinc-300">
+              Privacy
+            </Link>
             <Link href="/contact" className="transition-colors hover:text-zinc-300">
               Contact
             </Link>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-zinc-600">
+        <div className="mt-6 text-center text-xs leading-relaxed text-zinc-600">
+          You are receiving this because you signed up for emilys.site. We respect your inbox.
+          You can <Link href="/#subscribe" className="text-zinc-400 underline underline-offset-2 hover:text-white">unsubscribe anytime</Link>{" "}
+          or view our{" "}
+          <Link href="/privacy" className="text-zinc-400 underline underline-offset-2 hover:text-white">
+            Privacy Policy
+          </Link>
+          .
+        </div>
+
+        <div className="mt-4 border-t border-white/5 pt-4 text-center text-xs text-zinc-600">
           &copy; {new Date().getFullYear()} emilys.site. All rights reserved.
         </div>
       </div>

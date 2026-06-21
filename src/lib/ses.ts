@@ -35,16 +35,26 @@ export async function sendEmail({
   return ses.send(command)
 }
 
+const unsubscribeFooter = `
+  <hr style="border: none; border-top: 1px solid #e4e4e7; margin: 24px 0;" />
+  <p style="color: #a1a1aa; font-size: 12px; line-height: 1.5;">
+    You are receiving this because you signed up at <a href="https://emilys.site" style="color: #d946ef;">emilys.site</a>.
+    We respect your inbox.
+    <br /><br />
+    <a href="https://emilys.site/#subscribe" style="color: #d946ef; text-decoration: underline;">Unsubscribe anytime</a> &middot;
+    <a href="https://emilys.site/privacy" style="color: #d946ef; text-decoration: underline;">Privacy Policy</a>
+  </p>
+`
+
 export async function sendNewsletterConfirmation(email: string) {
   return sendEmail({
     to: email,
     subject: "Welcome to Emily's Newsletter!",
     body: `
       <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
-        <h1 style="color: #d946ef;">Welcome to Emily's! 🎉</h1>
+        <h1 style="color: #d946ef;">Welcome to Emily's!</h1>
         <p style="color: #52525b; line-height: 1.6;">Thanks for subscribing to our newsletter. You'll now receive the latest email marketing tips, industry insights, and platform updates straight to your inbox.</p>
-        <hr style="border: none; border-top: 1px solid #e4e4e7; margin: 24px 0;" />
-        <p style="color: #a1a1aa; font-size: 12px;">You received this because you subscribed at emilys.site. If you didn't subscribe, please ignore this email.</p>
+        ${unsubscribeFooter}
       </div>
     `,
   })
@@ -71,6 +81,7 @@ export async function sendContactNotification({
         </table>
         <hr style="border: none; border-top: 1px solid #e4e4e7; margin: 16px 0;" />
         <p style="color: #52525b; line-height: 1.6;">${message}</p>
+        ${unsubscribeFooter}
       </div>
     `,
   })

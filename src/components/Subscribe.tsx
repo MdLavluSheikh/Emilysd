@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, FormEvent } from "react"
+import Link from "next/link"
 
 export default function Subscribe() {
   const [email, setEmail] = useState("")
@@ -71,7 +72,11 @@ export default function Subscribe() {
         </form>
 
         <p className="mt-4 text-xs text-zinc-600">
-          No spam. Unsubscribe with one click.
+          By subscribing, you agree to our{" "}
+          <Link href="/privacy" className="text-zinc-400 underline underline-offset-2 hover:text-white">
+            Privacy Policy
+          </Link>{" "}
+          and understand that you can unsubscribe at any time.
         </p>
 
         {message && (
